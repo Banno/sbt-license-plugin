@@ -15,7 +15,7 @@ trait LicenseHeaders extends BasicScalaProject {
         } orElse {
           FileUtilities.append(destination, lineSeparator, log)
         } orElse {
-          FileUtilities.append(destination, fileContents, log)
+          FileUtilities.append(destination, removeExistingHeaderBlock(fileContents), log)
         } orElse {
           FileUtilities.copyFile(destination, path.asFile, log)
         }
@@ -37,5 +37,11 @@ trait LicenseHeaders extends BasicScalaProject {
     fileContents.lines.toList.zip(commentedLicenseTextLines) forall {
       case (fileLine, commentLine) => fileLine == commentLine
     }
-  
+
+  private def removeExistingHeaderBlock(fileContents: String): String = {
+    fileContents.lines.dropWhile { line =>
+      line.startsWith("/*") || 
+      line.startsWith(" *")
+    } mkString(lineSeparator)
+  }
 }
