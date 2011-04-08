@@ -1,0 +1,6 @@
+> update
+
+> format-license-headers
+
+> check-for-license src/main/scala/MyClass.scala
+
