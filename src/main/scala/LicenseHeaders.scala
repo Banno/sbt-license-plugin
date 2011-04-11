@@ -10,30 +10,34 @@ trait LicenseHeaders extends BasicScalaProject {
         if (alreadyHasHeader(fileContents))
           None
         else
-          addHeader(path, fileContents, log)
+          addHeader(path, fileContents)
       }
     }
-  }
+  } describedAs ("Adds license header to all source files.")
 
   def licenseText: String
 
 
-  lazy val commentedLicenseTextLines: List[String] = {
+  private lazy val commentedLicenseTextLines: List[String] = {
     val commentedLines = licenseText.lines.map { line => " * " + line }.toList
     ("/*" :: commentedLines ::: " */" :: Nil)
   }
 
   private val lineSeparator = System.getProperty("line.separator")
   
-  private def addHeader(path: Path, fileContents: String, log: Logger): Option[String] = {
-    val destination = new File(path.projectRelativePath + ".withHeader")
-    
-    FileUtilities.append(destination,
+  private def addHeader(path: Path, fileContents: String): Option[String] = {
+    val withHeader = new File(path.projectRelativePath + ".withHeader")
+    log.info("Adding license header to source file: " + path)
+
+    FileUtilities.append(withHeader,
                          commentedLicenseTextLines.mkString(lineSeparator),
                          log) orElse
-    FileUtilities.append(destination, lineSeparator, log) orElse
-    FileUtilities.append(destination, removeExistingHeaderBlock(fileContents), log) orElse
-    FileUtilities.copyFile(destination, path.asFile, log)
+    FileUtilities.append(withHeader, lineSeparator, log) orElse
+    FileUtilities.append(withHeader, removeExistingHeaderBlock(fileContents), log) orElse
+    FileUtilities.copyFile(withHeader, path.asFile, log) orElse {
+      if (withHeader.delete) None
+      else Some("Unable to delete " + withHeader)
+    }
   }
   
   private def alreadyHasHeader(fileContents: String): Boolean =
