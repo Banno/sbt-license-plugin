@@ -21,7 +21,7 @@ Installation
          import sbt._
          
          class Plugins(info: ProjectInfo) extends PluginDefinition(info) {
-           val licensePlugin = "com.banno" % "sbt-license-plugin" % "0.0.1" from "https://www.github.com/t8webware/sbt-license-plugin/downloads/sbt-license-plugin-0.0.1.jar
+           val licensePlugin = "com.banno" % "sbt-license-plugin" % "0.0.1" from "https://github.com/downloads/T8Webware/sbt-license-plugin/sbt-license-plugin-0.0.1.jar"
          }
 
      Read more about plugins [here](http://code.google.com/p/simple-build-tool/wiki/SbtPlugins)
