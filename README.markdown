@@ -10,7 +10,7 @@ There are also `MITLicense` and `ApacheLicense2` traits for applying each of the
 
 It can be part of your regular compile cycle by defining the `compile` action as:
 
-    override def compile = compileAction dependsOn formatLicenseHeaders
+    override def compileAction = super.compileAction dependsOn formatLicenseHeaders
 
 Installation
 ------------
