@@ -17,6 +17,7 @@ trait LicenseHeaders extends BasicScalaProject {
 
   def licenseText: String
 
+  def removeExistingHeaderBlock = true
 
   private lazy val commentedLicenseTextLines: List[String] = {
     val commentedLines = licenseText.lines.map { line => " * " + line }.toList
@@ -33,7 +34,12 @@ trait LicenseHeaders extends BasicScalaProject {
                          commentedLicenseTextLines.mkString(lineSeparator),
                          log) orElse
     FileUtilities.append(withHeader, lineSeparator, log) orElse
-    FileUtilities.append(withHeader, removeExistingHeaderBlock(fileContents), log) orElse
+    FileUtilities.append(withHeader,
+                         if (removeExistingHeaderBlock) 
+                           withoutExistingHeaderBlock(fileContents)
+                         else
+                           fileContents,
+                         log) orElse
     FileUtilities.copyFile(withHeader, path.asFile, log) orElse {
       if (withHeader.delete) None
       else Some("Unable to delete " + withHeader)
@@ -45,7 +51,7 @@ trait LicenseHeaders extends BasicScalaProject {
       case (fileLine, commentLine) => fileLine == commentLine
     }
 
-  private def removeExistingHeaderBlock(fileContents: String): String = {
+  private def withoutExistingHeaderBlock(fileContents: String): String = {
     fileContents.lines.dropWhile { line =>
       line.startsWith("/*") || 
       line.startsWith(" *")
