@@ -1,7 +1,7 @@
 trait ApacheLicense2 extends LicenseHeaders {
   def copyrightLine: String
 
-  def licenseText = """
+  def licenseText = copyrightLine + """
   
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
