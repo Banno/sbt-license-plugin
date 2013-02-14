@@ -1,6 +1,6 @@
 > update
 
-> format-license-headers
+> formatLicenseHeaders
 
-> check-for-license src/main/scala/MyClass.scala
-
+> checkForLicense src/main/scala/MyClass.scala
+ 
