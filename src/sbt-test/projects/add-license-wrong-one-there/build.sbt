@@ -1,6 +1,4 @@
-import com.banno._
-import license._
-import scala.io._
+import com.banno.license._
 
 Plugin.licenseSettings
 
