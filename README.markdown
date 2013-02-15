@@ -32,8 +32,8 @@ Usage
          
          version := "0.1"
          
-         organization := "com.banno"`
-2. To add an `apache2` or `mit` license with a custom copyright line, import the licenses and set the `license` setting like so: 
+         organization := "com.banno"
+2. To add an `apache2` or `mit` license with a custom copyright line, import the licenses as well and set the `license` setting like so: 
 
      i.e. in `build.sbt`:
      
@@ -50,7 +50,7 @@ Usage
          
          version := "0.1"
          
-         organization := "com.banno"`
+         organization := "com.banno"
 Contributing
 ------------
 Fork away, commit, and send a pull request. Make sure that the tests pass before you submit your pull request.
