@@ -1,7 +1,6 @@
 import java.io.File._
 import scala.io.Source
-import com.banno._
-import license._
+import com.banno.license._
 import sbt._
 import Keys._
 
@@ -36,17 +35,17 @@ object checkForLicenseBuild extends Build {
       println("file: " + fileContents)
 
         val actualLines = Source.fromFile(file).getLines.map(_.stripLineEnd).toList
-         // println("ACTUAL LINES: " + actualLines)
+          println("ACTUAL LINES: " + actualLines)
 
         val licenseLines = licenseText.split("\n").map(line => " * " + line).toList
 
         val expectedLines = "/*" :: licenseLines ::: " */" :: "package something" :: Nil
-         // println("EXPECTDLINES: " + expectedLines)
+          println("EXPECTDLINES: " + expectedLines)
 
         expectedLines.zip(actualLines).foldLeft(None: Option[String]) { (result, lines) =>
           val (expected, actual) = lines
           
- 	   // println("result: " + result)
+ 	    println("result: " + result)
 
           result orElse {
             if (expected == actual)
@@ -58,6 +57,6 @@ object checkForLicenseBuild extends Build {
     }
   }
  
-  def licenseText = Licenses.apache2("Copyright 2011 T8 Webware")
+  def licenseText = Licenses.apache2("Copyright 2013 T8 Webware")
 
 }

@@ -1,7 +1,6 @@
 import java.io.File._
 import scala.io.Source
-import com.banno._
-import license._
+import com.banno.license._
 import sbt._
 import Keys._
 
@@ -58,6 +57,6 @@ object checkForLicenseBuild extends Build {
     }
   }
  
-  def licenseText = Licenses.apache2("Copyright 2011 T8 Webware")
+  def licenseText = Licenses.apache2("Copyright 2013 T8 Webware")
 
 }
