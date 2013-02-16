@@ -11,7 +11,7 @@ Add the `sbt-license-plugin` to your project's (or .sbt's) plugin definition, li
      
          addSbtPlugin("com.banno" % "sbt-license-plugin" % "0.0.4")
          
-         resolvers += Resolver.file("Local Ivy Repository", file("/home/USER/.ivy2/local/"))(Resolver.ivyStylePatterns)`
+         resolvers += Resolver.file("Local Ivy Repository", file("/home/USER/.ivy2/local/"))(Resolver.ivyStylePatterns)
 
 Read more about plugins [here](http://www.scala-sbt.org/release/docs/Extending/Plugins.html) and [here](https://github.com/mads379/sbt-plugin-examples). 
 Usage
