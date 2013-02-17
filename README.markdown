@@ -7,7 +7,7 @@ Installation
 
 Add the `sbt-license-plugin` to your project's (or .sbt's) plugin definition, like so:
    
-     i.e. in `project/plugins.sbt`:
+   i.e. in `project/plugins.sbt`:
      
          addSbtPlugin("com.banno" % "sbt-license-plugin" % "0.0.4")
          
@@ -20,7 +20,7 @@ Usage
 
 1. To get the `formatLicenseHeaders` task that adds customizable header text, import the plugin's keys, and add the `LicenseSettings` setting to your build definition. Invoking `formatLicenseHeaders` will add the license to all of your main sources files. Optionally, you can remove any pre-existing header by setting the `removeExistingHeaderBlock` setting to `true`.
 
-     i.e. in `build.sbt`:
+   i.e. in `build.sbt`:
      
          import com.banno.license.Plugin.LicenseKeys._
          
@@ -35,7 +35,7 @@ Usage
          organization := "com.banno"
 2. To add an `apache2` or `mit` license with a custom copyright line, import the licenses as well and set the `license` setting like so: 
 
-     i.e. in `build.sbt`:
+   i.e. in `build.sbt`:
      
          import com.banno.license.Plugin.LicenseKeys._
          import com.banno.license.Licenses._
