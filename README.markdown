@@ -51,6 +51,11 @@ Usage
          version := "0.1"
          
          organization := "com.banno"
+
+Testing
+------------
+Ensure that things are working properly by testing the plugin with the `scripted` task, however, note that the scripted-plugin only works with sbt launcher versions 0.12-0.12.3. Learn more about testing plugins [here](http://eed3si9n.com/testing-sbt-plugins).
+
 Contributing
 ------------
 Fork away, commit, and send a pull request. Make sure that the tests pass before you submit your pull request.
