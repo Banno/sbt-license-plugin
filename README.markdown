@@ -1,6 +1,6 @@
 sbt-license-plugin
 ==========
-This is a [simple-build-tool](http://simple-build-tool.googlecode.com/) plugin for inserting/updating license headers in your source files. It was developed for ease of use and general laziness.
+This is a [simple-build-tool](http://simple-build-tool.googlecode.com/) `0.7.5` plugin for inserting/updating license headers in your source files. It was developed for ease of use and general laziness.
 
 Usage
 -----
