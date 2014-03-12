@@ -15,20 +15,20 @@ It can be part of your regular compile cycle by defining the `compile` action as
 Installation
 ------------
 1. Add the sbt-license-plugin to your plugin definition like so:
-   
+
      i.e. in `project/plugins/Plugins.scala`:
-     
+
          import sbt._
-         
+
          class Plugins(info: ProjectInfo) extends PluginDefinition(info) {
-           val licensePlugin = "com.banno" % "sbt-license-plugin" % "0.0.2" from "http://cloud.github.com/downloads/T8Webware/sbt-license-plugin/sbt-license-plugin-0.0.2.jar"
+           val licensePlugin = "com.banno" % "sbt-license-plugin" % "0.0.2" from "http://cloud.github.com/downloads/Banno/sbt-license-plugin/sbt-license-plugin-0.0.2.jar"
          }
 
      Read more about plugins [here](http://code.google.com/p/simple-build-tool/wiki/SbtPlugins)
 2. Mixin the `LicenseHeaders` trait into your `Project.scala` file and define `licenseText` as a string:
 
      i.e. in `project/build/Project.scala`:
-     
+
          class Project(info: ProjectInfo) extends DefaultProject(info) with LicenseHeaders {
            def licenseText = "Copyright (c) Initech Corp. 2011\nJust don't sue us."
          }
