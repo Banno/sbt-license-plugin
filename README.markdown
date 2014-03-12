@@ -24,7 +24,7 @@ Installation
            val licensePlugin = "com.banno" % "sbt-license-plugin" % "0.0.2" from "http://cloud.github.com/downloads/Banno/sbt-license-plugin/sbt-license-plugin-0.0.2.jar"
          }
 
-     Read more about plugins [here](http://code.google.com/p/simple-build-tool/wiki/SbtPlugins)
+     Read more about plugins [here](http://www.scala-sbt.org/0.7.7/docs/SbtPlugins.html)
 2. Mixin the `LicenseHeaders` trait into your `Project.scala` file and define `licenseText` as a string:
 
      i.e. in `project/build/Project.scala`:
