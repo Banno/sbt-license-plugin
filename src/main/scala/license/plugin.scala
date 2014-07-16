@@ -17,7 +17,7 @@ object Plugin extends sbt.Plugin {
     license := "Replace this with your license text!",
     removeExistingHeaderBlock := false,
     formatLicenseHeaders <<= formatLicenseHeadersTask,
-    compileInputs in Compile <<= compileInputs in Compile dependsOn formatLicenseHeaders
+    compileInputs in (Compile,compile)  <<= compileInputs in (Compile,compile)  dependsOn formatLicenseHeaders
   )  
   
   private val lineSeparator = System.getProperty("line.separator")
