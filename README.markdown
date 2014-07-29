@@ -10,7 +10,7 @@ Add the `sbt-license-plugin` to your project's (or .sbt's) plugin definition, li
 
    i.e. in `project/plugins.sbt`:
 
-         addSbtPlugin("com.banno" % "sbt-license-plugin" % "0.0.4")
+         addSbtPlugin("com.banno" % "sbt-license-plugin" % "0.1.0")
 
          resolvers += Resolver.file("Local Ivy Repository", file("/home/USER/.ivy2/local/"))(Resolver.ivyStylePatterns)
 
