@@ -4,17 +4,11 @@ This is a [simple-build-tool](http://www.scala-sbt.org/) plugin for inserting/up
 
 Installation
 ------------
-`sbt-license-plugin` for sbt 0.11.3+ is not yet published anywhere. Sorry. The git repository must be cloned locally and a `sbt publish-local` must be given.
 
-Add the `sbt-license-plugin` to your project's (or .sbt's) plugin definition, like so:
-
-   i.e. in `project/plugins.sbt`:
-
-         addSbtPlugin("com.banno" % "sbt-license-plugin" % "0.1.0")
-
-         resolvers += Resolver.file("Local Ivy Repository", file("/home/USER/.ivy2/local/"))(Resolver.ivyStylePatterns)
+The `sbt-license-plugin` is published over on our [bintray repository](https://bintray.com/banno/oss/sbt-license-plugin/view).
 
 Read more about plugins [here](http://www.scala-sbt.org/release/docs/Extending/Plugins.html) and [here](https://github.com/mads379/sbt-plugin-examples).
+
 Usage
 -----
 `formatLicenseHeaders` is a task that is called from the sbt console. In the default `LicenseSettings`, it is part of the normal compile cycle.
