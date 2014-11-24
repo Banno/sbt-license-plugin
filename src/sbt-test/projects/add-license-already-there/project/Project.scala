@@ -37,7 +37,7 @@ object checkForLicenseBuild extends Build {
         val actualLines = Source.fromFile(file).getLines.map(_.stripLineEnd).toList
           println("ACTUAL LINES: " + actualLines)
 
-        val licenseLines = licenseText.split("\n").map(line => " * " + line).toList
+        val licenseLines = licenseText.split("\n").map(line => if (line == "") " *" else " * " + line).toList
 
         val expectedLines = "/*" :: licenseLines ::: " */" :: "package something" :: Nil
           println("EXPECTDLINES: " + expectedLines)

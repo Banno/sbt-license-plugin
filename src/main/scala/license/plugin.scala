@@ -43,7 +43,7 @@ object Plugin extends sbt.Plugin {
   } 
   
   private def commentedLicenseTextLines(licenseText: String): List[String] = {
-    val commentedLines = licenseText.split('\n').map { line => " * " + line }.toList
+    val commentedLines = licenseText.split('\n').map { line => if (line == "") " *" else " * " + line }.toList
     ("/*" :: commentedLines ::: " */" :: Nil)
   }    
   
