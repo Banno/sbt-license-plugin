@@ -17,7 +17,8 @@ object Plugin extends sbt.Plugin {
     license := "Replace this with your license text!",
     removeExistingHeaderBlock := false,
     formatLicenseHeaders <<= formatLicenseHeadersTask,
-    compileInputs in (Compile,compile)  <<= compileInputs in (Compile,compile)  dependsOn formatLicenseHeaders
+    compileInputs in (Compile,compile)  <<= compileInputs in (Compile,compile)  dependsOn formatLicenseHeaders,
+    compileInputs in (Test,compile)  <<= compileInputs in (Test,compile)  dependsOn formatLicenseHeaders
   )  
   
   private val lineSeparator = System.getProperty("line.separator")
@@ -72,11 +73,38 @@ object Plugin extends sbt.Plugin {
     }
   }
   
-  private def formatLicenseHeadersTask = 
+  private def formatLicenseHeadersTask = Def.task[Unit] {
+    formatLicenseHeadersTask1.value
+    formatLicenseHeadersTask2.value
+    formatLicenseHeadersTask3.value
+    formatLicenseHeadersTask4.value
+  }
+  
+  private def formatLicenseHeadersTask1 = {
     (streams, scalaSource in Compile, license in formatLicenseHeaders, removeExistingHeaderBlock in formatLicenseHeaders) map {
-      (out, sourceDir, lic, removeHeader) =>
+      (out, sourceDir, lic, removeHeader) => 
+        modifySources(sourceDir, lic, removeHeader, out.log)      
+    } 
+  }
+      
+  private def formatLicenseHeadersTask2 = {
+    (streams, scalaSource in Test, license in formatLicenseHeaders, removeExistingHeaderBlock in formatLicenseHeaders) map {
+      (out, sourceDir, lic, removeHeader) => 
         modifySources(sourceDir, lic, removeHeader, out.log)
     } 
-    
+  }
   
+  private def formatLicenseHeadersTask3 = {
+    (streams, javaSource in Compile, license in formatLicenseHeaders, removeExistingHeaderBlock in formatLicenseHeaders) map {
+      (out, sourceDir, lic, removeHeader) => 
+        modifySources(sourceDir, lic, removeHeader, out.log)
+    } 
+  }
+  
+  private def formatLicenseHeadersTask4 = {
+    (streams, javaSource in Test, license in formatLicenseHeaders, removeExistingHeaderBlock in formatLicenseHeaders) map {
+      (out, sourceDir, lic, removeHeader) => 
+        modifySources(sourceDir, lic, removeHeader, out.log)
+    } 
+  }
 }
