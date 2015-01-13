@@ -3,4 +3,5 @@
 > formatLicenseHeaders
 
 > checkForLicense src/main/scala/MyClass.scala
- 
+
+> checkForLicense src/test/scala/MyClassSpec.scala
