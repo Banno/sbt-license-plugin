@@ -6,7 +6,7 @@ name := "sbt-license-plugin"
 
 organization := "com.banno"
 
-version := "0.1.3"
+version := "0.1.4-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 
