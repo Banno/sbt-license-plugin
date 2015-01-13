@@ -25,7 +25,7 @@ Usage
 
          name := "example"
 
-         version := "0.1"
+         version := "0.1.3"
 
          organization := "com.banno"
 2. To add an `apache2` or `mit` license with a custom copyright line, import the licenses as well and set the `license` setting like so:
@@ -43,7 +43,7 @@ Usage
 
          name := "example"
 
-         version := "0.1"
+         version := "0.1.3"
 
          organization := "com.banno"
 
