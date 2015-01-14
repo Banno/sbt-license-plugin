@@ -61,16 +61,18 @@ object Plugin extends sbt.Plugin {
     } mkString(lineSeparator)
   }
 
-  private def modifySources(sourceDir: File, licenseText: String,
-    removeExistingHeaders: Boolean, log: Logger) = {
-
+  private def modifySources(sourceDir: File, licenseText: String, removeExistingHeaders: Boolean, log: Logger) = {
     val header = commentedLicenseTextLines(licenseText)
+    applyHeaderToFilesWithout(sourceDir, header, removeExistingHeaders, log, "*.scala")
+    applyHeaderToFilesWithout(sourceDir, header, removeExistingHeaders, log, "*.java")
+  }
 
-    (sourceDir ** "*.scala").get foreach { path =>
+  private def applyHeaderToFilesWithout(sourceDir: File, header: List[String], removeExistingHeaders: Boolean, log: Logger, fileExtension: String): Unit = {
+    (sourceDir ** fileExtension).get foreach { path =>
       val fileContents = IO.read(path)
-
-      if(! alreadyHasHeader(fileContents, header))
+      if (!alreadyHasHeader(fileContents, header)) {
         addHeader(path, fileContents, header, removeExistingHeaders, log)
+      }
     }
   }
 

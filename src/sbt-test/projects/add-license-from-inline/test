@@ -5,3 +5,7 @@
 > checkForLicense src/main/scala/MyClass.scala
 
 > checkForLicense src/test/scala/MyClassSpec.scala
+
+> checkForLicense src/main/java/MyClass2.scala
+
+> checkForLicense src/test/java/MyClassSpec2.scala
