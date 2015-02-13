@@ -2,6 +2,10 @@
 
 This is a [simple-build-tool](http://www.scala-sbt.org/) plugin for inserting/updating license headers in your source files. It was developed for ease of use and general laziness.
 
+## sbt-header
+
+We don't use this project anymore internally, so we might be a bit slower to get fixes out. There's also [sbt-header](https://github.com/sbt/sbt-header) that seems to work in a similar fashion as this project.
+
 Installation
 ------------
 
