@@ -1,5 +1,3 @@
-import bintray.Keys._
-
 sbtPlugin := true
 
 name := "sbt-license-plugin"
@@ -14,10 +12,10 @@ scalacOptions ++= Seq("-deprecation", "-unchecked")
 
 scriptedSettings
 
-bintrayPublishSettings
+bintrayOrganization := Some("banno")
 
-bintrayOrganization in bintray := Some("banno")
+bintrayRepository := "oss"
 
-repository in bintray := "oss"
+bintrayPackageLabels := Seq("sbt")
 
 licenses ++= Seq(("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")))
