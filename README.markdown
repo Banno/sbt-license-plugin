@@ -1,3 +1,5 @@
+# OUTDATED
+
 # sbt-license-plugin
 
 This is a [simple-build-tool](http://www.scala-sbt.org/) plugin for inserting/updating license headers in your source files. It was developed for ease of use and general laziness.
